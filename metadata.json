@@ -1,0 +1,6 @@
+{
+  "name": "SmartKhata",
+  "description": "A modern digital ledger and credit management app for Pakistani shopkeepers with multi-language support, voice assistance, and AI-driven trust scoring.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}

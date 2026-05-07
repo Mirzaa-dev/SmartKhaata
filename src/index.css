@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-urdu: "Noto Sans Arabic", "Inter", serif;
+
+  --color-primary: #10b981; /* Emerald 500 */
+  --color-primary-dark: #059669;
+  --color-primary-light: #d1fae5;
+  --color-secondary: #f59e0b; /* Amber 500 */
+  --color-danger: #ef4444;
+  --color-success: #10b981;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased overflow-x-hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  [dir="rtl"] {
+    @apply font-urdu;
+  }
+}
+
+.urdu-text {
+  font-family: 'Noto Sans Arabic', serif;
+}
+
+/* Animations */
+.page-transition {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300;
+}

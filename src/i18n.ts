@@ -1,0 +1,175 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+const resources = {
+  en: {
+    translation: {
+      "app_name": "SmartKhata",
+      "add_customer": "Add Customer",
+      "search_customer": "Search Customer...",
+      "total_credit": "Total Credit",
+      "total_debit": "Total Debit",
+      "total_balance": "Net Balance",
+      "transactions": "Transactions",
+      "give": "You Gave (Udhaar)",
+      "got": "You Got (Jama)",
+      "trust_score": "Trust Score",
+      "settings": "Settings",
+      "language": "Language",
+      "voice_command": "Voice Command",
+      "dashboard": "Dashboard",
+      "customers": "Customers",
+      "todays_collection": "Today's Collection",
+      "high_risk": "High Risk",
+      "trusted": "Trusted",
+      "medium_risk": "Medium Risk",
+      "roman_urdu": "Roman Urdu",
+      "urdu": "Urdu",
+      "sindhi": "Sindhi",
+      "voice_assistant": "Voice Assistant",
+      "recent_activity": "Recent Activity",
+      "add_transaction": "Add Transaction",
+      "save": "Save",
+      "amount": "Amount",
+      "description": "Description (Optional)",
+      "due_date": "Due Date",
+      "ai_insights": "AI Insights",
+      "loading": "Loading...",
+      "likely_to_pay": "Likely to Pay",
+      "suggested_limit": "Suggested Limit",
+      "voice_help": "Say something like: 'Give 500 to Ali' or 'Got 200 from Ahmed'"
+    }
+  },
+  ur: {
+    translation: {
+      "app_name": "اسمارٹ کھاتہ",
+      "add_customer": "گاہک شامل کریں",
+      "search_customer": "گاہک تلاش کریں...",
+      "total_credit": "کل ادھار",
+      "total_debit": "کل وصولی",
+      "total_balance": "باقی رقم",
+      "transactions": "لین دین",
+      "give": "آپ نے دیے (ادھار)",
+      "got": "آپ کو ملے (جمع)",
+      "trust_score": "اعتبار اسکور",
+      "settings": "ترتیبات",
+      "language": "زبان",
+      "voice_command": "آواز کا حکم",
+      "dashboard": "ڈیش بورڈ",
+      "customers": "گاہک",
+      "todays_collection": "آج کی وصولی",
+      "high_risk": "زیادہ خطرہ",
+      "trusted": "قابل اعتماد",
+      "medium_risk": "درمیانہ خطرہ",
+      "urdu": "اردو",
+      "roman_urdu": "رومن اردو",
+      "sindhi": "سندھی",
+      "voice_assistant": "وائس اسسٹنٹ",
+      "recent_activity": "حالیہ سرگرمی",
+      "add_transaction": "لین دین شامل کریں",
+      "save": "محفوظ کریں",
+      "amount": "رقم",
+      "description": "تفصیل (اختیاری)",
+      "due_date": "واپسی کی تاریخ",
+      "ai_insights": "AI بصیرت",
+      "loading": "لوڈنگ...",
+      "likely_to_pay": "ادائیگی کا امکان",
+      "suggested_limit": "تجویز کردہ حد",
+      "voice_help": "کہیں: 'علی کو 500 ادھار لکھو' یا 'احمد نے 200 جمع کروائے'"
+    }
+  },
+  ru: {
+    translation: {
+      "app_name": "SmartKhata",
+      "add_customer": "Customer Add Karein",
+      "search_customer": "Customer Talaash Karein...",
+      "total_credit": "Total Udhaar",
+      "total_debit": "Total Wasooli",
+      "total_balance": "Baqi Raqam",
+      "transactions": "Len Den",
+      "give": "Aap Ne Diye (Udhaar)",
+      "got": "Aap Ko Mile (Jama)",
+      "trust_score": "Trust Score",
+      "settings": "Settings",
+      "language": "Zuban",
+      "voice_command": "Awaz Ka Hukam",
+      "dashboard": "Dashboard",
+      "customers": "Customers",
+      "todays_collection": "Aaj Ki Wasooli",
+      "high_risk": "Zyada Khatra",
+      "trusted": "Qabil-e-Aitbaar",
+      "medium_risk": "Darmyana Khatra",
+      "roman_urdu": "Roman Urdu",
+      "urdu": "Urdu",
+      "sindhi": "Sindhi",
+      "voice_assistant": "Voice Assistant",
+      "recent_activity": "Haliya Sargarmi",
+      "add_transaction": "Transaction Add Karein",
+      "save": "Save Karein",
+      "amount": "Raqam",
+      "description": "Tafseel (Zaroori Nahi)",
+      "due_date": "Wapsi Ki Tareekh",
+      "ai_insights": "AI Insights",
+      "loading": "Loading...",
+      "likely_to_pay": "Adaigi Ka Imkan",
+      "suggested_limit": "Suggested Limit",
+      "voice_help": "Kahein: 'Ali ko 500 udhaar likho' ya 'Ahmed ne 200 jama karwaye'"
+    }
+  },
+  sd: {
+    translation: {
+      "app_name": "اسمارٽ کاتو",
+      "add_customer": "گراهڪ شامل ڪريو",
+      "search_customer": "گراهڪ ڳوليو...",
+      "total_credit": "ڪل اڌار",
+      "total_debit": "ڪل وصولي",
+      "total_balance": "باقي رقم",
+      "transactions": "لين دين",
+      "give": "توهان ڏنا (اڌار)",
+      "got": "توهان کي مليا (جمع)",
+      "trust_score": "اعتبار اسڪور",
+      "settings": "سيٽنگون",
+      "language": "ٻولي",
+      "voice_command": "آواز جو حڪم",
+      "dashboard": "ڊيش بورڊ",
+      "customers": "گراهڪ",
+      "todays_collection": "اڄ جي وصولي",
+      "high_risk": "وڌيڪ خطرو",
+      "trusted": "قابل اعتماد",
+      "medium_risk": "درميانو خطرو",
+      "roman_urdu": "رومن اردو",
+      "urdu": "اردو",
+      "sindhi": "سنڌي",
+      "voice_assistant": "وائس اسسٽنٽ",
+      "recent_activity": "تازو سرگرميون",
+      "add_transaction": "ٽرانزيڪشن شامل ڪريو",
+      "save": "محفوظ ڪريو",
+      "amount": "رقم",
+      "description": "تفصيل (اختياري)",
+      "due_date": "واپسي جي تاريخ",
+      "ai_insights": "AI بصيرت",
+      "loading": "لوڊنگ...",
+      "likely_to_pay": "ادائگي جو امڪان",
+      "suggested_limit": "تجويز ڪيل حد",
+      "voice_help": "چئو: 'علي کي 500 اڌار لکو' يا 'احمد 200 جمع ڪرايا'"
+    }
+  }
+};
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false,
+    },
+    detection: {
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
+    }
+  });
+
+export default i18n;

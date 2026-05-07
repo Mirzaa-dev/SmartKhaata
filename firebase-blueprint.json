@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Information about shopkeepers or customers using the app.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "userType": { "type": "string", "enum": ["shopkeeper", "customer"] },
+        "language": { "type": "string", "enum": ["en", "ur", "ru", "sd"] },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "name", "phone", "userType", "language", "createdAt"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Details of a customer managed by a shopkeeper.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "shopkeeperId": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "notes": { "type": "string" },
+        "totalUdhaar": { "type": "number" },
+        "totalJama": { "type": "number" },
+        "trustScore": { "type": "number" },
+        "riskLevel": { "type": "string", "enum": ["low", "medium", "high"] },
+        "lastTransactionAt": { "type": "number" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "shopkeeperId", "name", "totalUdhaar", "totalJama", "trustScore", "riskLevel", "createdAt"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "A single credit or debit entry in the ledger.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerId": { "type": "string" },
+        "shopkeeperId": { "type": "string" },
+        "type": { "type": "string", "enum": ["credit", "debit"] },
+        "amount": { "type": "number" },
+        "description": { "type": "string" },
+        "dueDate": { "type": "number" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "customerId", "shopkeeperId", "type", "amount", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles indexed by UID."
+    },
+    "customers/{customerId}": {
+      "schema": "Customer",
+      "description": "Collection of all customers across all shops."
+    },
+    "transactions/{transactionId}": {
+      "schema": "Transaction",
+      "description": "Collection of all transactions across all shops and customers."
+    }
+  }
+}
